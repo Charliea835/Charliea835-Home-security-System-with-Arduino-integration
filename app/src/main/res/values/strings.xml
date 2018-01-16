@@ -7,4 +7,6 @@
     <string name="UpdateData">Update</string>
     <string name="Findstation">find police stations</string>
     <string name="title_activity_nearest_station">Map</string>
+    <string name="SecuritySystem">Secure your home</string>
+    <string name="version">version v1.2.4</string>
 </resources>

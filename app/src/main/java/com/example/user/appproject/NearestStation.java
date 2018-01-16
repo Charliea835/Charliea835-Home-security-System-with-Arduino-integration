@@ -41,8 +41,6 @@ public class NearestStation extends AppCompatActivity implements OnMapReadyCallb
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        Toast.makeText(this, "Map is Ready", Toast.LENGTH_SHORT).show();
-        Log.d(TAG, "onMapReady: map is ready");
         mMap = googleMap;
 
         if (mLocationPermissionsGranted) {
@@ -50,10 +48,11 @@ public class NearestStation extends AppCompatActivity implements OnMapReadyCallb
 
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                     != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
-                    Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+            {
                 return;
             }
-            mMap.setMyLocationEnabled(true);
+            mMap.setMyLocationEnabled(true); //set location enabled to true
             mMap.getUiSettings().setMyLocationButtonEnabled(false);
 
             init();
@@ -88,7 +87,7 @@ public class NearestStation extends AppCompatActivity implements OnMapReadyCallb
     }
 
     private void init(){
-        Log.d(TAG, "init: initializing");
+
 
         mSearchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -109,7 +108,6 @@ public class NearestStation extends AppCompatActivity implements OnMapReadyCallb
         mGps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "onClick: clicked gps icon");
                 getDeviceLocation();
             }
         });
@@ -118,7 +116,7 @@ public class NearestStation extends AppCompatActivity implements OnMapReadyCallb
     }
 
     private void geoLocate(){
-        Log.d(TAG, "geoLocate: geolocating");
+        Log.d(TAG, "geoLocate: geolocating");//check this function is being called
 
         String searchString = mSearchText.getText().toString();
 
@@ -246,7 +244,7 @@ public class NearestStation extends AppCompatActivity implements OnMapReadyCallb
     }
 
     private void hideSoftKeyboard(){
-        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN); //hide keyboard
     }
 
 }
