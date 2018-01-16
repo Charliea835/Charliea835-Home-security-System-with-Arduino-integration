@@ -14,6 +14,7 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -51,6 +52,7 @@ public class UpdateActivity extends AppCompatActivity implements View.OnClickLis
 
     private void update() {
         final String usersEmail = getIntent().getExtras().getString("currentEmail");
+        Log.d("EMAIL",usersEmail);
         final ProgressDialog dialog = new ProgressDialog(this);
         dialog.setMessage("Updating");
         dialog.setProgressStyle(dialog.STYLE_SPINNER);
@@ -83,6 +85,23 @@ public class UpdateActivity extends AppCompatActivity implements View.OnClickLis
                 return map;
             }
         };
+
+        stringRequest.setRetryPolicy(new RetryPolicy() {
+            @Override
+            public int getCurrentTimeout() {
+                return 50000;
+            }
+
+            @Override
+            public int getCurrentRetryCount() {
+                return 50000;
+            }
+
+            @Override
+            public void retry(VolleyError error) throws VolleyError {
+
+            }
+        });
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
