@@ -23,8 +23,8 @@ import java.util.Map;
 
 public class UserLogin extends AppCompatActivity implements View.OnClickListener{
 
-    public static final String LOGIN_URL = "http://ansellfamily3.000webhostapp.com/userLogin.php";
-    //public static final String LOGIN_URL = "http://192.168.1.11/userLogin.php";
+    //public static final String LOGIN_URL = "http://ansellfamily3.000webhostapp.com/userLogin.php";
+    public static final String LOGIN_URL = "http://192.168.1.9/userLogin.php";
     public static final String KEY_EMAIL="email";
     public static final String KEY_PASSWORD="password";
 
@@ -34,6 +34,7 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
     private String email;
     private String password;
     public Boolean CheckEditText;
+    private int tries=3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +68,14 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
                         }else{
                             Toast.makeText(UserLogin.this,response,Toast.LENGTH_LONG).show();
                             dialog.dismiss();
+                            tries--;
+                            if(tries<3){
+                                Toast.makeText(UserLogin.this,Integer.toString(tries) + " attempts remaining",Toast.LENGTH_LONG).show();
+                                if(tries<=0){
+                                    Toast.makeText(UserLogin.this,"Account locked - too many failed login attempts",Toast.LENGTH_LONG).show();
+                                    buttonLogin.setEnabled(false);
+                                }
+                            }
                         }
                     }
                 },
