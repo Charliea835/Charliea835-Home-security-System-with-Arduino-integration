@@ -5,12 +5,15 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.os.Vibrator;
+import android.widget.Toast;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -18,17 +21,20 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+/**
+ * This class populates the listview with appropriate actions that the user can perform and provides the logic for those actions
+ */
 public class MenuActivity extends AppCompatActivity {
 
     public String URL ="http://ansellfamily3.000webhostapp.com/checkForAlarm.php";
-  // public String URL ="http://192.168.1.11/checkForAlarm.php";
+  // public String URL ="http://192.168.1.11/checkForAlarm.php"; //for testing on local server purposes
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         TextView welcome = (TextView) findViewById(R.id.WelcomeTxt);
         String[] items = {getResources().getString(R.string.ViewSensorData), getResources().getString(R.string.ViewTimestamp),
-                getResources().getString(R.string.UpdateData),getResources().getString(R.string.Findstation)};
+                getResources().getString(R.string.UpdateData),getResources().getString(R.string.Findstation),getResources().getString(R.string.Logout)};
        final String message = getIntent().getExtras().getString("email");
         welcome.setText("Logged in as:" + " " + message);
         checkIfAlarmActivated();
@@ -65,6 +71,11 @@ public class MenuActivity extends AppCompatActivity {
 
                 if (strText.equalsIgnoreCase(getResources().getString(R.string.Findstation))) {
                     startActivity(new Intent(MenuActivity.this,NearestStation.class));
+                }
+
+                if (strText.equalsIgnoreCase(getResources().getString(R.string.Logout))) {
+                    startActivity(new Intent(MenuActivity.this,UserLogin.class));
+                    Toast.makeText(MenuActivity.this,"Logged out successfully, goodbye " + message,Toast.LENGTH_LONG).show();
                 }
 
             }

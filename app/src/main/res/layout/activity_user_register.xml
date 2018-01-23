@@ -59,7 +59,7 @@
         android:layout_height="40dp"
         android:background="#11000000"
         android:ems="10"
-        android:hint="Password"
+        android:hint="new password"
         android:inputType="textPassword"
         android:layout_below="@+id/edtUserLname"
         android:layout_alignStart="@+id/edtUserLname" />
@@ -70,7 +70,7 @@
         android:layout_height="40dp"
         android:background="#11000000"
         android:ems="10"
-        android:hint="Email"
+        android:hint="new email"
         android:inputType="textEmailAddress"
         android:layout_below="@+id/UserRegPassEDT"
         android:layout_centerHorizontal="true" />
@@ -87,3 +87,6 @@
 
 
 </RelativeLayout>
+
+<!-- This xml file allows the user to enter their register details, it also references the background gradient from the drawables folder and assigns that to the
+background of the screen-->
