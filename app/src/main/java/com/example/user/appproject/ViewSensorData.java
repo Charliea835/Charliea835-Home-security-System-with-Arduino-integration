@@ -19,14 +19,18 @@ public class ViewSensorData extends AppCompatActivity {
     String showUrl = "http://ansellfamily3.000webhostapp.com/showSensorData.php";
    // String showUrl = "http://192.168.1.11/showSensorData.php";
     TextView result;
+    TextView mainText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_sensor_data);
-        result = (TextView) findViewById(R.id.textView);
+        result = (TextView) findViewById(R.id.dataTxt);
         requestQueue = Volley.newRequestQueue(getApplicationContext());
         getSensorData();
+        final String usersEmail = getIntent().getExtras().getString("currentEmail");
+        mainText = (TextView) findViewById(R.id.mainTxt);
+        mainText.setText(usersEmail + ", These are your captured sensor data");
     }
 
     public void getSensorData(){
@@ -38,11 +42,12 @@ public class ViewSensorData extends AppCompatActivity {
                 try {
                     JSONArray sensor = response.getJSONArray("sensor");
                     for (int i = 0; i < sensor.length(); i++) {
-                        JSONObject student = sensor.getJSONObject(i);
+                        JSONObject data = sensor.getJSONObject(i);
 
-                        String value = student.getString("Value");
+                        String value = data.getString("Value");
+                        System.out.println("VALUES:" + value);
 
-                        result.append("\n \n \n" + "Sensor value recieved:" + value +"\n \n");
+                        result.append("\n \n" + "Sensor value recieved:" + value +"\n \n");
                     }
                     result.append("");
 

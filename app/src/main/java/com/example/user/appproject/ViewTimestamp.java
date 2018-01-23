@@ -20,6 +20,7 @@ public class ViewTimestamp extends AppCompatActivity {
     String showUrl = "http://ansellfamily3.000webhostapp.com/retrieveTimestamp.php";
    // String showUrl = "http://192.168.1.11/retrieveTimestamp.php";
     TextView result;
+    TextView mainText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,9 @@ public class ViewTimestamp extends AppCompatActivity {
         result = (TextView) findViewById(R.id.textView);
         result.setMovementMethod(new ScrollingMovementMethod());
         requestQueue = Volley.newRequestQueue(getApplicationContext());
+        final String usersEmail = getIntent().getExtras().getString("currentEmail");
+        mainText = (TextView) findViewById(R.id.mainTxt);
+        mainText.setText(usersEmail + ", your alarm was activated at these times");
         getSensorData();
     }
 

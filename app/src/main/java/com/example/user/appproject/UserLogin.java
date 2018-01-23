@@ -23,8 +23,8 @@ import java.util.Map;
 
 public class UserLogin extends AppCompatActivity implements View.OnClickListener{
 
-    //public static final String LOGIN_URL = "http://ansellfamily3.000webhostapp.com/userLogin.php";
-    public static final String LOGIN_URL = "http://192.168.1.9/userLogin.php";
+    public static final String LOGIN_URL = "http://ansellfamily3.000webhostapp.com/userLogin.php";
+    //public static final String LOGIN_URL = "http://192.168.1.9/userLogin.php";
     public static final String KEY_EMAIL="email";
     public static final String KEY_PASSWORD="password";
 

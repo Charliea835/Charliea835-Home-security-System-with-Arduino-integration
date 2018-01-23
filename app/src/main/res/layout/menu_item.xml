@@ -1,6 +1,8 @@
 <TextView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="98dp"
+    android:layout_height="wrap_content"
     android:text="@string/default_value"
+    android:textSize="15pt"
+    android:textAlignment="center"
     android:id="@+id/menu_item" />

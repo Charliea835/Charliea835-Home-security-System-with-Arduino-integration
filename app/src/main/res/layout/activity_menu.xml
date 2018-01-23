@@ -10,15 +10,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.user.appproject.MenuActivity">
 
-
-
-
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/item_list"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/WelcomeTxt" />
+        android:layout_below="@+id/editText"
+        android:divider="@drawable/divider"
+        android:dividerHeight="16.0dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,6 +26,26 @@
         android:text="Large Text"
         android:id="@+id/WelcomeTxt"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="15dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/item_list"
+        android:layout_alignParentStart="true"
+        android:clickable="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/security"/>
 
 </RelativeLayout>

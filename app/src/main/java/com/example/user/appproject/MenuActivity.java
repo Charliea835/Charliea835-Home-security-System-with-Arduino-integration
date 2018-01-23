@@ -10,19 +10,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.os.Vibrator;
-
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -36,7 +30,7 @@ public class MenuActivity extends AppCompatActivity {
         String[] items = {getResources().getString(R.string.ViewSensorData), getResources().getString(R.string.ViewTimestamp),
                 getResources().getString(R.string.UpdateData),getResources().getString(R.string.Findstation)};
        final String message = getIntent().getExtras().getString("email");
-        welcome.setText("Logged in as," + " " + message);
+        welcome.setText("Logged in as:" + " " + message);
         checkIfAlarmActivated();
         ListView menu_items = (ListView) findViewById(R.id.item_list);
 
@@ -52,11 +46,15 @@ public class MenuActivity extends AppCompatActivity {
                 TextView textView = (TextView) itemClicked;
                 String strText = textView.getText().toString();
                 if (strText.equalsIgnoreCase(getResources().getString(R.string.ViewSensorData))) {
-                    startActivity(new Intent(MenuActivity.this,ViewSensorData.class));
+                    Intent intent = new Intent(MenuActivity.this,ViewSensorData.class);
+                    intent.putExtra("currentEmail",message);
+                    startActivity(intent);
                 }
 
                 if (strText.equalsIgnoreCase(getResources().getString(R.string.ViewTimestamp))) {
-                    startActivity(new Intent(MenuActivity.this,ViewTimestamp.class));
+                    Intent intent = new Intent(MenuActivity.this,ViewTimestamp.class);
+                    intent.putExtra("currentEmail",message);
+                    startActivity(intent);
                 }
 
                 if (strText.equalsIgnoreCase(getResources().getString(R.string.UpdateData))) {
