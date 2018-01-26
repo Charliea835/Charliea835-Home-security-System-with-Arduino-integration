@@ -17,8 +17,8 @@ import org.json.JSONObject;
 
 public class ViewTimestamp extends AppCompatActivity {
     RequestQueue requestQueue;
-    String showUrl = "http://ansellfamily3.000webhostapp.com/retrieveTimestamp.php";
-   // String showUrl = "http://192.168.1.11/retrieveTimestamp.php";
+    String showUrl = "http://ourSystem.000webhostapp.com/retrieveTimestamp.php";
+   // String showUrl = "http://192.168.1.9/retrieveTimestamp.php";
     TextView result;
     TextView mainText;
 

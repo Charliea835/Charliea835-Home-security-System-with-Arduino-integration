@@ -24,8 +24,8 @@ import java.util.Map;
 
 public class UpdateActivity extends AppCompatActivity implements View.OnClickListener{
 
-    public static final String UPDATE_URL = "http://ansellfamily3.000webhostapp.com/updateUserDetails.php";
-
+   public static final String UPDATE_URL = "http://ourSystem.000webhostapp.com/updateUserDetails.php";
+    //public static final String UPDATE_URL = "http://192.168.1.9/updateUserDetails.php";
     public static final String KEY_EMAIL="email";
     public static final String KEY_PASSWORD="password";
 
@@ -65,7 +65,7 @@ public class UpdateActivity extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onResponse(String response) {
                         if(response.trim().equals("updated")) {
-                            openMenu();
+                            goToLogin();
                             dialog.dismiss();
                         }
                     }
@@ -108,7 +108,7 @@ public class UpdateActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
-    private void openMenu(){
+    private void goToLogin(){
         Intent intent = new Intent(UpdateActivity.this,UserLogin.class);
         startActivity(intent);
     }

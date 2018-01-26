@@ -28,8 +28,8 @@ public class UserRegister extends AppCompatActivity implements View.OnClickListe
     Button insert;
     RequestQueue requestQueue;
     public Boolean CheckEditText;
-    String insertUrl = "http://ansellfamily3.000webhostapp.com/insertRecord.php";
-    // String insertUrl = "http://192.168.1.9/insertRecord.php";
+    String insertUrl = "http://ourSystem.000webhostapp.com/insertRecord.php";
+    //String insertUrl = "http://192.168.1.9/insertRecord.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +56,7 @@ public class UserRegister extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onResponse(String response) {
                 if(response.trim().equals("success")) {
+                    System.out.println("Respponse is" + response);
                     Intent intent = new Intent(UserRegister.this, UserLogin.class);
                     startActivity(intent);
                     dialog.dismiss();

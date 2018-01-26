@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -26,8 +25,8 @@ import com.android.volley.toolbox.Volley;
  */
 public class MenuActivity extends AppCompatActivity {
 
-    public String URL ="http://ansellfamily3.000webhostapp.com/checkForAlarm.php";
-  // public String URL ="http://192.168.1.11/checkForAlarm.php"; //for testing on local server purposes
+    public String URL ="http://ourSystem.000webhostapp.com/checkForAlarm.php";
+   // public String URL ="http://192.168.1.9/checkForAlarm.php"; //for testing on local server purposes
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +34,7 @@ public class MenuActivity extends AppCompatActivity {
         TextView welcome = (TextView) findViewById(R.id.WelcomeTxt);
         String[] items = {getResources().getString(R.string.ViewSensorData), getResources().getString(R.string.ViewTimestamp),
                 getResources().getString(R.string.UpdateData),getResources().getString(R.string.Findstation),getResources().getString(R.string.Logout)};
-       final String message = getIntent().getExtras().getString("email");
+        final String message = getIntent().getExtras().getString("email");
         welcome.setText("Logged in as:" + " " + message);
         checkIfAlarmActivated();
         ListView menu_items = (ListView) findViewById(R.id.item_list);

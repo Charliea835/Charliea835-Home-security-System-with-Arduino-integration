@@ -16,8 +16,8 @@ import org.json.JSONObject;
 
 public class ViewSensorData extends AppCompatActivity {
     RequestQueue requestQueue;
-    String showUrl = "http://ansellfamily3.000webhostapp.com/showSensorData.php";
-   // String showUrl = "http://192.168.1.11/showSensorData.php";
+    String showUrl = "http://ourSystem.000webhostapp.com/showSensorData.php";
+    //String showUrl = "http://192.168.1.9/showSensorData.php";
     TextView result;
     TextView mainText;
 
