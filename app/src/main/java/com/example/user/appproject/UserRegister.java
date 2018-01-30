@@ -37,14 +37,17 @@ public class UserRegister extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_user_register);
 
         firstname = (EditText) findViewById(R.id.edtUserFname);
-        lastname = (EditText) findViewById(R.id.edtUserLname);
-        password = (EditText) findViewById(R.id.UserRegPassEDT);
+        lastname = (EditText) findViewById(R.id.lastName);
+        password = (EditText) findViewById(R.id.passInput);
         insert = (Button) findViewById(R.id.buttonLogin);
-        email = (EditText) findViewById(R.id.userRegEmailEDT);
+        email = (EditText) findViewById(R.id.emailInput);
 
-        insert.setOnClickListener(this);
+     //   insert.setOnClickListener(this);
     }
-
+    public void onLogin(View view){
+        Intent intent = new Intent(this,UserLogin.class);
+        startActivity(intent);
+    }
     private void register(){
         final ProgressDialog dialog = new ProgressDialog(this);
         dialog.setMessage("Registering please wait");
@@ -56,7 +59,7 @@ public class UserRegister extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onResponse(String response) {
                 if(response.trim().equals("success")) {
-                    System.out.println("Respponse is" + response);
+                    System.out.println("Response is" + response);
                     Intent intent = new Intent(UserRegister.this, UserLogin.class);
                     startActivity(intent);
                     dialog.dismiss();
@@ -137,11 +140,5 @@ public class UserRegister extends AppCompatActivity implements View.OnClickListe
             CheckEditText = true;
         }
     }
-    public void onLogin(View view){
-        Intent intent = new Intent(UserRegister.this,UserLogin.class);
-        startActivity(intent);
-    }
-
-
 
 }

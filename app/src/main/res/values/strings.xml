@@ -1,13 +1,23 @@
 <resources>
     <string name="app_name">Secure your home</string>
-    <string name="title_activity_user_login">userLogin</string>
+    <string name="title_activity_user_login">Login</string>
     <string name="default_value">Default</string>
     <string name="title_activity_nearest_station">Map</string>
     <string name="SecuritySystem">Secure your home</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
     <string name="version">version v1.2.4</string>
     <string name="ViewSensorData">Your sensor data</string>
-    <string name="ViewTimestamp">your alarm records</string>
+    <string name="ViewTimestamp">Your alarm records</string>
     <string name="UpdateData">Update details</string>
-    <string name="Findstation">find police station</string>
-    <string name="Logout">log out</string>
+    <string name="Findstation">Find police station</string>
+    <string name="Logout">Log out</string>
+    <string name="lastname">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="register">Register</string>
+    <string name="menu">Menu</string>
+    <string name="alarm">Alarm History</string>
+    <string name="update">Update</string>
+    <string name="update_desc">This allows you to update your details</string>
+    <string name="this_is_your_alarm_s_data_that_was_recorded">This is your Alarm\'s data that was recorded</string>
 </resources>

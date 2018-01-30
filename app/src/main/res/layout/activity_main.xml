@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:text="@string/version"
         android:id="@+id/versiontxt"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="72dp" />

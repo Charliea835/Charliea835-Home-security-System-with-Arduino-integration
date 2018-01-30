@@ -5,34 +5,31 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/main"
-    android:background="@drawable/gradient">
+    android:background="@color/colorWhite">
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:gravity="bottom"
         android:layout_alignParentBottom="true"
         android:textStyle="bold"
-        android:textSize="20dp"
+        android:textSize="20sp"
+        android:padding="30dp"
         android:scrollbars="vertical"
         android:layout_below="@+id/mainTxt" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is your Alarm's data that was recorded"
+        android:text="@string/this_is_your_alarm_s_data_that_was_recorded"
         android:id="@+id/mainTxt"
+        android:padding="30dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
 
 </RelativeLayout>

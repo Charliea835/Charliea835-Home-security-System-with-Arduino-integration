@@ -41,8 +41,8 @@ public class UpdateActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
 
-        updateEmail = (EditText) findViewById(R.id.edtLogin1);
-        updatePassword = (EditText) findViewById(R.id.edtLogin2);
+        updateEmail = (EditText) findViewById(R.id.emailInput);
+        updatePassword = (EditText) findViewById(R.id.passInput);
 
         buttonLogin = (Button) findViewById(R.id.buttonLogin);
 

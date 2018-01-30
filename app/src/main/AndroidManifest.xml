@@ -15,21 +15,26 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/security"
+        android:icon="@mipmap/security"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashActivity"
+            android:theme="@style/AppTheme.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserLogin" />
-        <activity android:name=".MenuActivity" />
-        <activity android:name=".ViewSensorData" />
-        <activity android:name=".ViewTimestamp" />
+        <activity android:name=".UserLogin"
+            android:label="@string/title_activity_user_login"/>
+        <activity android:name=".MenuActivity"
+            android:label="@string/menu"/>
+        <activity android:name=".ViewSensorData"
+            android:label="@string/ViewSensorData"/>
+        <activity android:name=".ViewTimestamp"
+            android:label="@string/alarm"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -44,9 +49,11 @@
 
         <activity
             android:name=".NearestStation"
-            android:label="@string/title_activity_nearest_station" />
-        <activity android:name=".UpdateActivity" />
-        <activity android:name=".UserRegister"></activity>
+            android:label="@string/Findstation" />
+        <activity android:name=".UpdateActivity"
+            android:label="@string/UpdateData"/>
+        <activity android:name=".UserRegister"
+            android:label="@string/register"/>
     </application>
 
 </manifest>

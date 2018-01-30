@@ -41,8 +41,8 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
 
-        editTextEmail = (EditText) findViewById(R.id.edtLogin1);
-        editTextPassword = (EditText) findViewById(R.id.edtLogin2);
+        editTextEmail = (EditText) findViewById(R.id.emailInput);
+        editTextPassword = (EditText) findViewById(R.id.passInput);
 
         buttonLogin = (Button) findViewById(R.id.buttonLogin);
 
