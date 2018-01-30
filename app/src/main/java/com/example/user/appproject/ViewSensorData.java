@@ -1,6 +1,7 @@
 package com.example.user.appproject;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,6 +28,7 @@ public class ViewSensorData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_sensor_data);
         result = (TextView) findViewById(R.id.dataTxt);
+        result.setMovementMethod(new ScrollingMovementMethod());
         requestQueue = Volley.newRequestQueue(getApplicationContext());
         getSensorData();
         final String usersEmail = getIntent().getExtras().getString("currentEmail");
