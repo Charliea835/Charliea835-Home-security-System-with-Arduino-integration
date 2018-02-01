@@ -2,6 +2,8 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="line" >
 
+    <!--This XML file puts a line between the listview items
+    this file is called in the activity_menu.xml file-->
     <stroke
         android:width="1px"
         android:color="@color/colorPrimary" />

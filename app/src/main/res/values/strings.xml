@@ -20,4 +20,6 @@
     <string name="update">Update</string>
     <string name="update_desc">This allows you to update your details</string>
     <string name="this_is_your_alarm_s_data_that_was_recorded">This is your Alarm\'s data that was recorded</string>
+    <string name="newEmail">New email</string>
+    <string name="newPassword">New Password</string>
 </resources>

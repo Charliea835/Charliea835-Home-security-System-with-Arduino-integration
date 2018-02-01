@@ -3,6 +3,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +25,12 @@ import java.util.Map;
 
 public class UpdateActivity extends AppCompatActivity implements View.OnClickListener{
 
+
+    /*
+       This file allows the user to update their details by inputting their new details and those
+       details are posted to a php script and forwarded to the database
+     */
+
    public static final String UPDATE_URL = "http://ourSystem.000webhostapp.com/updateUserDetails.php";
     //public static final String UPDATE_URL = "http://192.168.1.9/updateUserDetails.php";
     public static final String KEY_EMAIL="email";
@@ -43,7 +50,7 @@ public class UpdateActivity extends AppCompatActivity implements View.OnClickLis
 
         updateEmail = (EditText) findViewById(R.id.emailInput);
         updatePassword = (EditText) findViewById(R.id.passInput);
-
+        updatePassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         buttonLogin = (Button) findViewById(R.id.buttonLogin);
 
         buttonLogin.setOnClickListener(this);
@@ -81,11 +88,12 @@ public class UpdateActivity extends AppCompatActivity implements View.OnClickLis
                 Map<String,String> map = new HashMap<String,String>();
                 map.put(KEY_EMAIL,email);
                 map.put(KEY_PASSWORD,password);
-                map.put("currentEmail",usersEmail);
+                map.put("currentEmail",usersEmail); //post current email to be checked against in database
                 return map;
             }
         };
 
+        // reset the retry policy for network connection
         stringRequest.setRetryPolicy(new RetryPolicy() {
             @Override
             public int getCurrentTimeout() {
@@ -126,6 +134,7 @@ public class UpdateActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
+    // method to check if all the edittexts have been filled out or not
     private void checkIfEditextsAreEmpty(){
         // Getting values from EditText.
         String emailHolder = updateEmail.getText().toString().trim();

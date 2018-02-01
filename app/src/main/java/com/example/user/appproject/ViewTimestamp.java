@@ -1,3 +1,8 @@
+/*
+   This java file shows the user their historical alarm data from the system, the data is retrieved through JSON
+   and appeneded to the result edittext
+ */
+
 package com.example.user.appproject;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -66,6 +71,7 @@ public class ViewTimestamp extends AppCompatActivity {
             }
         });
 
+        //reset network retry policy to avoid timeouts
         jsonObjectRequest.setRetryPolicy(new RetryPolicy() {
             @Override
             public int getCurrentTimeout() {

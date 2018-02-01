@@ -81,6 +81,8 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
     }
+
+    //Call php script to check database for alarm activity
     private void checkIfAlarmActivated(){
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
                 new Response.Listener<String>() {
@@ -120,6 +122,7 @@ public class MenuActivity extends AppCompatActivity {
 
         };
 
+        //reset network policy to avoid timeouts
         stringRequest.setRetryPolicy(new RetryPolicy() {
             @Override
             public int getCurrentTimeout() {
@@ -137,6 +140,7 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        //add request to requestqueue to be executed.
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
 

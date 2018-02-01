@@ -1,3 +1,8 @@
+/*
+    This java file uses the google maps API  to be able to locate an area that the user types into the search bar
+    preferebly a garda station
+ */
+
 package com.example.user.appproject;
 
 import android.*;
@@ -115,12 +120,14 @@ public class NearestStation extends AppCompatActivity implements OnMapReadyCallb
         hideSoftKeyboard();
     }
 
+
+    // geolocate method for finding the location that the user types into the search bar
     private void geoLocate(){
         Log.d(TAG, "geoLocate: geolocating");//check this function is being called
 
         String searchString = mSearchText.getText().toString();
 
-        Geocoder geocoder = new Geocoder(NearestStation.this);
+        Geocoder geocoder = new Geocoder(NearestStation.this); //create new geolocater
         List<Address> list = new ArrayList<>();
         try{
             list = geocoder.getFromLocationName(searchString, 1);

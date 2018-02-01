@@ -7,6 +7,7 @@
     android:id="@+id/main"
     android:background="@color/colorWhite">
 
+    <!--This xml page shows the user historical times that their alarm was sounded-->
 
     <TextView
         android:layout_width="wrap_content"

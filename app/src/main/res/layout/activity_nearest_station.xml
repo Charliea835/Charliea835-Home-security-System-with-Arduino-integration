@@ -3,6 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--This shows the edittext for finding the location and the image for
+    getting back to the users location when pressed-->
+
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -36,6 +39,7 @@
             android:layout_centerVertical="true"
             android:inputType="text"
             android:textSize="15sp"
+            android:singleLine="true"
             android:textColor="#000"
             android:id="@+id/input_search"
             android:background="@null"

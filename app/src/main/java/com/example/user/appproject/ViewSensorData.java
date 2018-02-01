@@ -1,3 +1,8 @@
+/*
+  Shows the user their sensor data, the data is retrieved through JSON from the php script
+  and displayed in the result edittext for the user to see
+ */
+
 package com.example.user.appproject;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -33,7 +38,7 @@ public class ViewSensorData extends AppCompatActivity {
         getSensorData();
         final String usersEmail = getIntent().getExtras().getString("currentEmail");
         mainText = (TextView) findViewById(R.id.mainTxt);
-        mainText.setText(usersEmail + ", These are your captured sensor data");
+        mainText.setText(usersEmail + ", this is how close someone got to your door in centimetres, please view any captured images on our website");
     }
 
     public void getSensorData(){
@@ -50,7 +55,7 @@ public class ViewSensorData extends AppCompatActivity {
                         String value = data.getString("Value");
                         System.out.println("VALUES:" + value);
 
-                        result.append("\n \n" + "Sensor value recieved:" + value +"\n \n");
+                        result.append("\n \n" + "object detected at:" + value + "CM" +"\n \n");
                     }
                     result.append("");
 

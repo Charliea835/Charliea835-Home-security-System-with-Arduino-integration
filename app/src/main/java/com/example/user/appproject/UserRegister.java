@@ -1,9 +1,16 @@
+
+/*
+  This java file allows the user to register to the system, it redirects to a php script to send the data
+  to the database
+ */
+
 package com.example.user.appproject;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -23,7 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class UserRegister extends AppCompatActivity implements View.OnClickListener{
+public class UserRegister extends AppCompatActivity{
     EditText firstname, lastname,password,email;
     Button insert;
     RequestQueue requestQueue;
@@ -35,14 +42,12 @@ public class UserRegister extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_register);
-
         firstname = (EditText) findViewById(R.id.edtUserFname);
         lastname = (EditText) findViewById(R.id.lastName);
         password = (EditText) findViewById(R.id.passInput);
         insert = (Button) findViewById(R.id.buttonLogin);
         email = (EditText) findViewById(R.id.emailInput);
-
-     //   insert.setOnClickListener(this);
+        password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
     }
     public void onLogin(View view){
         Intent intent = new Intent(this,UserLogin.class);
@@ -108,19 +113,21 @@ public class UserRegister extends AppCompatActivity implements View.OnClickListe
         requestQueue.add(request);
     }
 
-    @Override
+   // when user clicks register button check if all editexts are empty or not
+    // if they are all filled call register method
     public void onClick(View v) {
         checkIfEditextsAreEmpty();
         if(CheckEditText) {
             register();
         }
         else {
-
+            //if all edittexts are not filled let user know and restrict them from continuing
             Toast.makeText(UserRegister.this, "Please fill all form fields.", Toast.LENGTH_LONG).show();
         }
 
     }
 
+    //check if all fields are empty or not
     private void checkIfEditextsAreEmpty(){
         // Getting values from EditText.
         String fname = firstname.getText().toString().trim();
