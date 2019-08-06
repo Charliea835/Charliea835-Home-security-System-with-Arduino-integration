@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="HomeSecurityStyleSheet.css">
+    <link rel="shortcut icon" href="images/secure_logo.png" type="image/png">
+    
+    <title>Update User details</title>
+    
+</head>
+<body onload="startTime()">
+
+
+<div class="header">
+    <nav>
+    <ul>
+        
+    <li id="google_translate_element"><li>
+
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+            }
+        </script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+
+<script>
+var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
+</script>
+
+    <li id="clock"> <label id="txt"> </label> </li>
+    
+    <li id="loginText"> You are logged in </li>
+    
+</ul>
+</nav>
+</div>
+
+
+<section id="showcase">
+      <div class="container">
+        <h1>Home Security System</h1>
+            <p> Safeguard your home  </p>
+      </div>
+</section>
+  
+     
+     
+<div class="topnav">
+    <nav>
+        <ul>
+            <li><a href="HomeSecurityMain.html">Home</a></li>
+            <li><a href="HomeSecurityUpdateDetails.html">Update User Information</a></li>
+            <li><a href="HomeSecuritySystemInformation.html">System information</a></li>
+        </ul>
+    </nav>
+
+</div>
+
+<hr>
+<center><h3>Update User Information</h3></center>
+<hr>
+
+<br>
+
+<div class="form">
+            
+    <form action="HomeSecurityUpdateDetails" method="POST">
+      <input type="text" placeholder="Old customer first name" name="oldfirstname" required/>
+      <input type="text" placeholder="Old customer last name" name="oldlastname" required/>
+      <input type="text" placeholder="Old email" name="oldEmail" required/>
+      <input type="password" placeholder="Old password" name="oldPassword" required/>
+      
+      <hr>
+      
+      <input type="text" placeholder="New customer first name" name="firstname" required/>
+      <input type="text" placeholder="New customer last name" name="lastname" required/>
+      <input type="text" placeholder="New email" name="Email" required/>
+      <input type="password" placeholder="New password" name="Password" required/>
+      <button>update details</button>
+    </form>
+    
+</div>
+
+    
+<hr>
+<center><footer>Copyright &copy; Alan Morrissey, Charlie Ansell, William Delaney</footer></center> 
+<center><a href="#clock">Back to top of page</a></center>
+
+</body>
+</html>

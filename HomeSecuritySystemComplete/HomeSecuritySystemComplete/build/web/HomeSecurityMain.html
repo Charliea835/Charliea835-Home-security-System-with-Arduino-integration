@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="HomeSecurityStyleSheet.css">
+    <link rel="shortcut icon" href="images/secure_logo.png" type="image/png">
+    
+        <title>Home Page</title>
+    
+</head>
+<body onload="startTime()">
+
+
+<div class="header">
+    <nav>
+    <ul>
+        
+    <li id="google_translate_element"><li>
+
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+            }
+        </script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add a zero in front of numbers < 10
+    return i;
+}
+</script>
+
+<script>
+var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
+</script>
+
+    <li id="clock"> <label id="txt"> </label> </li>
+    
+    <li id="loginText">You are not logged in </li>
+    
+</ul>
+</nav>
+</div>
+
+
+<section id="showcase">
+      <div class="container">
+        <h1>Home Security System</h1>
+            <p> Safeguard your home  </p>
+      </div>
+</section>
+  
+     
+     
+<div class="topnav">
+    <nav>
+        <ul>
+            <li><a href="HomeSecurityMain.html">Home</a></li>
+            <li><a href="HomeSecurityRegister.html">Register</a></li>
+            <li><a href="HomeSecurityLogin.html">Login</a></li>
+        </ul>
+    </nav>
+
+</div>
+    
+    
+    <center><img src="images/secure_logo.png"></center>
+    
+    
+<article>
+    <center><h1>Our System</h1></center>
+    <center><p>Our system gives you the piece of mind to know that you home is secure.</p></center>
+  
+    <center><p>We use a camera and a sensor on your front door to detect the intruder's distance from the door and to take a picture of them.</p></center>
+
+    <center><p>You can check your system's information via our website or app if an intruder is near your house.</p></center>
+
+</article>
+
+    <br>
+    <br>
+    <br>
+    
+<hr>
+<center><footer>Copyright &copy; Alan Morrissey, Charlie Ansell, William Delaney</footer></center> 
+<center><a href="#clock">Back to top of page</a></center>
+
+</body>
+</html>

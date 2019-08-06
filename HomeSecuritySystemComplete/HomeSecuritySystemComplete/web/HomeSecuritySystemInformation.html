@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="HomeSecurityStyleSheet.css">
+    <link rel="shortcut icon" href="images/secure_logo.png" type="image/png">
+    
+    <title>System Information</title>
+    
+</head>
+<body onload="startTime()">
+
+
+<div class="header">
+    <nav>
+    <ul>
+        
+        <li id="google_translate_element"><li>
+
+            <script type="text/javascript">
+                function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+            </script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+
+<script>
+var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
+</script>
+
+    <li id="clock"> <label id="txt"> </label> </li>
+    
+    <li id="loginText"> You are logged in </li>
+    
+</ul>
+</nav>
+</div>
+
+
+<section id="showcase">
+      <div class="container">
+        <h1>Home Security System</h1>
+            <p> Safeguard your home  </p>
+      </div>
+</section>
+  
+ 
+     
+<div class="topnav">
+    <nav>
+        <ul>
+            <li><a href="HomeSecurityMain.html">Home</a></li>
+            <li><a href="HomeSecurityUpdateDetails.html">Update User Information</a></li>
+            <li><a href="HomeSecuritySystemInformation.html">System information</a></li>
+        </ul>
+    </nav>
+
+</div>
+
+<hr>
+        <center><h3>System Information</h3></center>
+<hr>
+
+
+
+<br>
+
+<!-- Align Icons Code-->
+<center><TABLE BORDER="0">
+        
+<TR>
+
+    <TD>
+        <FORM ACTION="HomeSecurityArduinoReadDB">
+            <INPUT TYPE="image" src="images/DBinfo.png" width="100" height="100">
+            <br>
+            <center>View your security sensor information</center>
+        </FORM>
+    </TD>
+
+    <TD>
+        <FORM ACTION="show">
+            <INPUT TYPE="image" src="images/pictures.png" width="100" height="100">
+            <br>
+            <center>View image of latest security breach</center>
+        </FORM> 
+    </TD> 
+    
+    <TD>
+        <FORM ACTION="showChart">
+            <INPUT TYPE="image" src="images/chart.png" width="100" height="100">
+            <br>
+            <center>View your charted sensor data</center>
+        </FORM>
+    </TD>
+
+    <TD>
+        <FORM ACTION="retrieve">
+            <INPUT TYPE="image" src="images/breaches.png" width="100" height="100">
+            <br>
+            <center>View historical security breaches</center>
+        </FORM>
+    </TD>
+
+
+</TR>
+
+</TABLE></center>
+
+<br> 
+<br>
+<br>
+<br>
+
+
+<input id="pac-input" class="controls" type="text" placeholder="Search Box" value="nearest garda stations" name="searchbox">
+
+
+<div id="map" style="width:100%;height:400px;background:white"></div>
+
+<!-- google maps code-->
+<script>
+    
+      var map, infoWindow;
+      //initialise map
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 9
+        });
+        
+        infoWindow = new google.maps.InfoWindow;
+        
+        var service = new google.maps.places.PlacesService(map);
+        
+        
+        
+        //get details of highlighted places
+        service.getDetails({
+          placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
+        }, function(place, status) {
+            
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+            var marker = new google.maps.Marker({
+              map: map,
+              position: place.geometry.location
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                'Place ID: ' + place.place_id + '<br>' +
+                place.formatted_address + '</div>');
+              infowindow.open(map, this);
+            });
+          }
+        });
+        
+        // Create the search box and link it to UI element.
+        var input = document.getElementById('pac-input');
+        var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+       
+        
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function() {
+          searchBox.setBounds(map.getBounds());
+        });
+        
+        
+        var markers = [];
+        // Listen for the event when user selects a prediction, then retrieve
+        // more details for that place they selected
+        searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+
+          if (places.length == 0) {
+            return;
+          }
+
+          // Clear out the old markers.
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            if (!place.geometry) {
+              console.log("Returned place contains no geometry");
+              return;
+            }
+            var icon = {
+              url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
+
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+              map: map,
+              icon: icon,
+              title: place.name,
+              position: place.geometry.location
+            }));
+
+            if (place.geometry.viewport) {
+              // Only geocodes have viewport.
+              bounds.union(place.geometry.viewport);
+            } 
+            else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+          map.fitBounds(bounds);
+        });
+      
+
+        // try to get HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } 
+        else {
+          // if the browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+      
+
+    </script>
+
+    <!-- Import google maps web service-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChoXuG9P9ox6djfwfM28vgl-t6jEqBs-s
+    &libraries=places&callback=initMap"
+    async defer></script> 
+    
+    <br>
+    <br>
+    <br>
+    
+<hr>
+<center><footer>Copyright &copy; Alan Morrissey, Charlie Ansell, William Delaney</footer></center> 
+<center><a href="#clock">Back to top of page</a></center>
+
+
+</body>
+</html>
